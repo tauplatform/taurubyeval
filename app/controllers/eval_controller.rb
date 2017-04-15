@@ -3,6 +3,8 @@ class EvalController < ApplicationController
 
   def index
 
+    puts ">>>>>>>>>>>> Eval index: #{request.inspect}"
+
     body = request.body.read
 
   	puts ">>>>>>>>>>>> EVALUATING:\n#{body}"
