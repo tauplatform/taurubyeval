@@ -3,12 +3,14 @@ class EvalController < ApplicationController
 
   def index
 
-  	puts ">>>>>>>>>>>> EVALUATING"
+    body = request.body.read
+
+  	puts ">>>>>>>>>>>> EVALUATING:\n#{body}"
 
   	result = {}
 
   	begin
-  		result['output'] = eval(request.body.read)
+  		result['output'] = eval(body)
   	rescue Exception => e
   		result['error'] = e.to_s
   	end
